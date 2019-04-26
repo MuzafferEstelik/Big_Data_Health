@@ -6,7 +6,7 @@
 -- You need to put train.csv under hdfs directory 
 -- '/input/train/train.csv'
 -- 
--- To do this, run the following commands for events.csv, 
+-- To do this, run the following commands for train.csv, 
 -- 1. sudo su - hdfs
 -- 2. hdfs dfs -mkdir -p /input/train
 -- 3. hdfs dfs -chown -R root /input
