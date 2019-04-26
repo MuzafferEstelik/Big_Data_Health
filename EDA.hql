@@ -12,11 +12,11 @@
 -- 3. hdfs dfs -chown -R root /input
 -- 4. exit 
 -- 5. hdfs dfs -put /path-to-train.csv /input/train/
-
+-- hdfs dfs -put /data/train.csv /input/train/
 -- ***************************************************************************
   
 -- create  table
-DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS train;
 CREATE EXTERNAL TABLE train (
   Path STRING,
   Gender STRING,
@@ -48,6 +48,7 @@ LOCATION '/input/train';
 -- ***************************************************************************
 
 --No_Finding
+
 SELECT count (*) AS No_Finding_Positive
 FROM train
 WHERE No_Finding = 1;
@@ -242,16 +243,16 @@ FROM train
 GROUP BY Age;
 
 -- Maximum, minimum and average ages of the patients
-SELECT MAX(Age) AS Maximum_Age. MIN(Age) AS Minimum_Age, AVG(Age) AS Average_Age
+SELECT MAX(Age) AS Maximum_Age, MIN(Age) AS Minimum_Age, AVG(Age) AS Average_Age
 FROM train;
 
 -- Maximum, minimum and average ages of the MALE patients
-SELECT MAX(Age) AS Maximum_Age. MIN(Age) AS Minimum_Age, AVG(Age) AS Average_Age
+SELECT MAX(Age) AS Maximum_Age, MIN(Age) AS Minimum_Age, AVG(Age) AS Average_Age
 FROM train
 WHERE Gender = 'Male';
 
 -- Maximum, minimum and average ages of the FEMALE patients
-SELECT MAX(Age) AS Maximum_Age. MIN(Age) AS Minimum_Age, AVG(Age) AS Average_Age
+SELECT MAX(Age) AS Maximum_Age, MIN(Age) AS Minimum_Age, AVG(Age) AS Average_Age
 FROM train
 WHERE Gender = 'Female';
 
